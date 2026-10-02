@@ -184,15 +184,11 @@
         </div>
         @endif
     </main>
-
-    <!-- Footer -->
                 <footer class="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 py-6 mt-auto transition-colors duration-300">
                         <div class="max-w-7xl mx-auto px-4 text-center text-gray-500 dark:text-gray-400 text-xs">
                                 &copy; 2026 BusineesDevelopment.
                         </div>
                 </footer>
-
-    <!-- Script Penggerak & Sinkronisasi Tombol Dark Mode -->
     <script>
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');

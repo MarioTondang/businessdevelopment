@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('BusinessDevelopment.'), 
         ]);
         
-        // 2. Kategori (Makanan & Minuman Dipisah)
+        // 2. Kategori 
         $katMakanan = Category::create(['name' => 'Makanan', 'slug' => 'makanan']);
         $katMinuman = Category::create(['name' => 'Minuman', 'slug' => 'minuman']);
         $katFashion = Category::create(['name' => 'Fashion', 'slug' => 'fashion']);
@@ -54,7 +54,7 @@ class DatabaseSeeder extends Seeder
             'slug' => Str::slug('Burger-' . uniqid()),
             'price' => 15000,
             'description' => 'Burger daging sapi empuk dengan keju meleleh khas buatan mahasiswa.',
-            'image' => null, // Tambahkan ini agar tidak error
+            'image' => null, 
         ]);
 
         Product::create([
@@ -64,7 +64,7 @@ class DatabaseSeeder extends Seeder
             'slug' => Str::slug('Jus Buah Naga-' . uniqid()),
             'price' => 15000,
             'description' => 'Jus buah naga segar kaya vitamin untuk menyegarkan harimu di kampus.',
-            'image' => null, // Tambahkan ini
+            'image' => null, 
         ]);
 
         Product::create([
@@ -74,7 +74,7 @@ class DatabaseSeeder extends Seeder
             'slug' => Str::slug('Risol Mayo-' . uniqid()),
             'price' => 2000,
             'description' => 'Risol mayo lumer isi telur dan sosis yang sangat cocok untuk teman nugas.',
-            'image' => null, // Tambahkan ini
+            'image' => null,
         ]);
     }
 }

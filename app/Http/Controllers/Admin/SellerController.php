@@ -30,7 +30,7 @@ class SellerController extends Controller
             'whatsapp_number' => 'required|string|max:20',
         ]);
 
-        // Menyimpan data secara eksplisit agar aman dari mass-assignment
+        
         Seller::create([
             'name' => $request->name,
             'nim' => $request->nim,
@@ -73,10 +73,10 @@ class SellerController extends Controller
 
     public function destroy(Seller $seller)
     {
-        // Hapus semua produk milik penjual ini terlebih dahulu
+        
         $seller->products()->delete(); 
         
-        // Baru hapus data penjualnya
+        
         $seller->delete();
         
         return redirect()->route('admin.sellers.index')->with('success', 'Data mahasiswa/penjual beserta produknya berhasil dihapus.');

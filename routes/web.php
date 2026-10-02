@@ -9,10 +9,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
 
-// ==========================================
-// --- ROUTE PENGUNJUNG (FRONTEND) ---
-// ==========================================
-
 Route::get('/', function (Request $request) {
     $search = $request->input('search');
     $categorySlug = $request->input('category'); 
@@ -43,8 +39,6 @@ Route::get('/', function (Request $request) {
     }
 
     $products = $query->latest()->get();
-    
-    // Ambil 4 produk untuk rekomendasi
     $recommendedProducts = Product::with(['category', 'seller'])->inRandomOrder()->take(4)->get();
     
     return view('welcome', compact('products', 'search', 'categories', 'categorySlug', 'majors', 'major', 'recommendedProducts'));
@@ -57,29 +51,22 @@ Route::get('/produk/{slug}', function ($slug) {
 })->name('product.show');
 
 
-// --- ROUTE DIREKTORI MAHASISWA / PENJUAL (PUBLIK) ---
 Route::get('/sellers', function () {
     $sellers = Seller::with('products')->orderBy('name', 'asc')->paginate(12);
     return view('sellers.index', compact('sellers'));
 })->name('sellers.index');
 
-
-// ==========================================
-// --- ROUTE ADMIN (BACKEND) ---
-// ==========================================
-
-// Menggunakan DashboardController untuk menangani fitur pencarian
 Route::get('/dashboard', [DashboardController::class, 'index'])
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
 
-// Grup Route Admin (Produk & Penjual di dalam panel admin)
+
 Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
     Route::resource('products', ProductController::class);
     Route::resource('sellers', SellerController::class);
 });
 
-// Manajemen Profil Pengguna / Admin
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

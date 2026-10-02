@@ -79,7 +79,6 @@
                                     @endif
                                 </div>
                                 
-                                <!-- Input Ganti Foto (Gaya Standar Lintas Browser) -->
                                 <div class="flex-1 w-full">
                                     <div class="relative w-full border-2 border-dashed border-gray-300 rounded-lg px-4 py-5 bg-white text-center hover:bg-gray-50 transition-colors">
                                         <input type="file" name="image" id="image" accept="image/*" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10">

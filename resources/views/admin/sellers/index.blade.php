@@ -1,15 +1,11 @@
 <x-app-layout>
     <div class="py-8 bg-gray-50 dark:bg-gray-900 min-h-screen transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-            <!-- Notifikasi Sukses -->
             @if (session('success'))
                 <div class="mb-6 bg-green-50 dark:bg-green-950/50 border border-green-200 dark:border-green-800 text-green-700 dark:text-green-300 px-4 py-3 rounded-lg text-sm flex items-center justify-between shadow-sm" role="alert">
                     <span class="block sm:inline">{{ session('success') }}</span>
                 </div>
             @endif
-
-            <!-- Header Judul & Tombol Tambah -->
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
                 <div>
                     <h1 class="text-2xl font-bold text-gray-900 dark:text-white tracking-tight">Manajemen Penjual</h1>
@@ -20,8 +16,6 @@
                     Tambah Data Mahasiswa
                 </a>
             </div>
-
-            <!-- Table Card -->
             <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden shadow-sm transition-colors duration-300">
                 <div class="overflow-x-auto">
                     <table class="w-full text-left border-collapse whitespace-nowrap">
@@ -58,11 +52,9 @@
                                     </td>
                                     <td class="py-3.5 px-6 text-center">
                                         <div class="flex items-center justify-center gap-2">
-                                            <!-- Tombol Edit -->
                                             <a href="{{ route('admin.sellers.edit', $seller->id) }}" class="p-1.5 bg-gray-100 dark:bg-gray-700 hover:bg-amber-50 dark:hover:bg-amber-950/50 hover:text-amber-600 text-gray-600 dark:text-gray-300 rounded-md transition" title="Edit">
                                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
                                             </a>
-                                            <!-- Tombol Hapus -->
                                             <form action="{{ route('admin.sellers.destroy', $seller->id) }}" method="POST" class="inline" onsubmit="return confirm('PERINGATAN: Menghapus mahasiswa ini juga akan menghapus SEMUA PRODUK miliknya. Anda yakin?');">
                                                 @csrf
                                                 @method('DELETE')

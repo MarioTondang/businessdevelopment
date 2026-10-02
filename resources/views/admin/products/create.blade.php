@@ -56,7 +56,7 @@
                             @error('seller_id') <span class="text-xs text-red-500 mt-1 block">{{ $message }}</span> @enderror
                         </div>
 
-                        <!-- Kategori (Ganti variabel $categories sesuai Controller kamu) -->
+                        <!-- Kategori -->
                         <div>
                             <label class="block text-xs font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-400 mb-1">Kategori <span class="text-red-500">*</span></label>
                             <select name="category_id" required class="w-full bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors">

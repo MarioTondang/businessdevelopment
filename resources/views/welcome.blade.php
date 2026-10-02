@@ -256,7 +256,6 @@
             </div>
         </div>
 
-        <!-- ================= GRID KARTU PRODUK UTAMA ================= -->
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             @forelse($products as $product)
             <div onclick="window.location.href='{{ route('product.show', $product->slug) }}';" class="group bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl p-4 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between cursor-pointer">
@@ -309,14 +308,12 @@
         </div>
     </div>
 
-    <!-- ================= FOOTER ================= -->
     <footer class="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 py-6 mt-auto transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 text-center text-gray-500 dark:text-gray-400 text-xs">
             &copy; 2026 BusinessDevelopment.
         </div>
     </footer>
 
-    <!-- ================= SCRIPT ================= -->
     <script>
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
